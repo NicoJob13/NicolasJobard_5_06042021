@@ -71,6 +71,37 @@ async function createProductSheet() {
     productCustomization.appendChild(customizationForm);
 }
 
+const addCartButton = document.getElementById('addCartButton');
+addCartButton.addEventListener('click', addToCart);
+
+async function addToCart() {
+    const productData = await getProductData();
+    const colorSelector = document.getElementById('productColor');
+    const selectedColor = colorSelector.options[colorSelector.selectedIndex].value;
+    const customizedProduct = {
+        id : productData._id,
+        name : productData.name,
+        color : selectedColor,
+        price : productData.price / 100 + " €"
+    }
+    const cart = createCart();
+    cart.push(customizedProduct);
+    saveCart(cart);
+}
+
+function createCart() {
+    var cart = localStorage.getItem('selectedProduct');
+    if(cart != null) {
+        return JSON.parse(cart);
+    } else {
+        return [];
+    }
+}
+
+function saveCart(customizedProduct) {
+    localStorage.setItem('selectedProduct', JSON.stringify(customizedProduct));
+}
+
 function getProductData() {
     const productId = new URLSearchParams(window.location.search).get('id');;
     return fetch(`http://localhost:3000/api/teddies/${productId}`)
