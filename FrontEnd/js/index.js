@@ -9,7 +9,7 @@ async function displayProducts() {
 }
 
 function getProducts() {
-    return fetch("http://localhost:3000/api/teddies")
+    return fetch(`http://localhost:3000/api/teddies`)
         .then(function(response) {
         return response.json();
         })
@@ -30,6 +30,7 @@ function createProductsGallery() {
     galleryCard.classList.add('card', 'galleryCard');
 
     const productLink = document.createElement('a');
+    productLink.href = './product.html?id=' + product._id;
 
     const pictureContainer = document.createElement('div');
     pictureContainer.classList.add('pictureContainer');

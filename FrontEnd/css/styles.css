@@ -50,6 +50,15 @@ a {
     margin: 0 auto 1rem auto;
 }
 
+.button:hover {
+    cursor: pointer;
+    box-shadow: 0 0.1rem 0.4rem 0.1rem #c2c2c2;
+}
+
+.button:focus {
+    outline-style: none;
+}
+
 .header {
     min-height: 3rem;
     height: 6rem;
@@ -134,7 +143,7 @@ a {
 }
 
 .productCard {
-    height: auto;
+    max-height: 30rem;
     max-width: 50rem;
     box-shadow: 0 0.1rem 0.4rem 0.1rem #c2c2c2;
     justify-content: space-between;
@@ -193,10 +202,22 @@ a {
     justify-content: center;
 }
 
-.descriptionContainer {
-    padding: 1rem;
+.productSheetCard {
+    height: 20rem;
+    width: 55rem;
+}
+
+.productSheetPicture {
+    height: 100%;
+    width: 25rem;
+    object-fit: cover;
+}
+
+.productDescriptionContainer {
+    padding: .5rem 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .productDescriptionPrice {
@@ -207,12 +228,23 @@ a {
     text-align: justify;
 }
 
-.productCustomization {
-    padding-bottom: 1rem;
+.productDescriptionText {
+    font-size: .9rem;
 }
 
 .customizationForm {
     padding: .9rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.customizationFormLabel {
+    font-size: .9rem;
+    padding-bottom: .5rem;
+}
+
+.productAddCart {
+    padding-bottom: 1rem;
 }
 
 .addCartButton, .validationButton {
