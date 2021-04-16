@@ -87,6 +87,7 @@ async function addToCart() {
     const cart = createCart();
     cart.push(customizedProduct);
     saveCart(cart);
+    alert('Votre produit a été ajouté au panier !');
 }
 
 function createCart() {
