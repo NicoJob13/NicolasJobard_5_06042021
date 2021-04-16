@@ -48,7 +48,7 @@ function createProductsGallery() {
 
     const productPrice = document.createElement('span');
     productPrice.classList.add('productPrice');
-    productPrice.textContent = product.price / 100 + " " + "€";
+    productPrice.textContent = product.price / 100 + ",00 €";
     
     productsGallery.appendChild(galleryCard);
     galleryCard.appendChild(productLink);

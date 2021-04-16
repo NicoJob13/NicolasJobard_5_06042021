@@ -19,7 +19,7 @@ async function createProductSheet() {
 
     const productPrice = document.createElement('span');
     productPrice.classList.add('productPrice', 'productDescriptionPrice');
-    productPrice.textContent = productData.price / 100 + " " + "€";
+    productPrice.textContent = productData.price / 100 + ",00 €";
 
     const productDescription = document.createElement('div');
     productDescription.classList.add('productDescription');
@@ -82,7 +82,8 @@ async function addToCart() {
         id : productData._id,
         name : productData.name,
         color : selectedColor,
-        price : productData.price / 100 + " €"
+        price : productData.price / 100,
+        picture : productData.imageUrl
     }
     const cart = createCart();
     cart.push(customizedProduct);

@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="./css/styles.css">
 
 		<script src="https://kit.fontawesome.com/1ff953b2ad.js" crossorigin="anonymous"></script>
+        <script src="./js/cart.js" type="text/javascript" defer></script>
 
         <title>Orinoco - Panier et Validation de la commande</title>
         <meta name="description" content="Récapitulatif du contenu ajouté au panier et formulaire permettant la validation de la commande.">
@@ -28,15 +29,15 @@
             <section id="order">
                 <h2 class="sectionTitle">Je commande !</h2>
                 <div>
-                    <h3 class="sectionSubTitle">Mon panier</h3>
-                    <div class="cartTable" id="orderTable"></div>
+                    <h3 class="sectionSubTitle">1 - Mon panier</h3>
+                    <div id="tableContainer"></div>
                 </div>
                 <div>
-                    <h3 class="sectionSubTitle">Mes informations</h3>
+                    <h3 class="sectionSubTitle">2 - Mes informations</h3>
                     <form action="" id="orderForm"></form>
                 </div>
                 <div>
-                    <h3 class="sectionSubTitle">Validation</h3>
+                    <h3 class="sectionSubTitle">3 - Validation</h3>
                     <button class="button validationButton" id="purchaseValidation">Commander</button>
                 </div>
             </section>

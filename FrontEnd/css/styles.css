@@ -191,7 +191,7 @@ a {
 }
 
 .productPrice {
-    width: 3rem;
+    width: 3.5rem;
     padding: .3rem 1rem;
     border-radius: var(--borderRadiusCards);
     background-color: var(--orange);
@@ -247,10 +247,14 @@ a {
     padding-bottom: 1rem;
 }
 
-.addCartButton, .validationButton {
+.addCartButton, .clearCartButton, .validationButton {
     height: 2rem;
     width: 12rem;
     align-self: center;
+}
+
+.clearCartButton {
+    margin: 1rem 1.5rem;
 }
 
 .footer {
@@ -273,4 +277,60 @@ a {
     font-size: .7rem;
     color: var(--purple);
     margin: auto;
+}
+
+.emptyCart {
+    text-align: center;
+}
+
+.cartTable {
+    width: 60rem;
+    background-color: var(--white);
+    border: 2px solid var(--orange);
+    border-radius: var(--borderRadiusBlocks);
+    border-spacing: 0;
+    overflow: hidden;
+}
+
+.cartTableCell {
+    height: 2.5rem;
+    width: 15rem;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.cartTableProductCell {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cartTableContentProductCellPicture {
+    width: 4rem;
+    height: 4rem;
+    padding: 0 1rem;
+    object-fit: contain;
+    justify-self: flex-start;
+}
+
+.cartTableContentProductCellName {
+    display: flex;
+    align-items: flex-end;
+    justify-self: flex-start;
+}
+
+.tableBottom {
+    display: flex;
+    justify-content: space-between;
+}
+.totalPrice {
+    font-weight: bold;
+    padding: 1.5rem 0 0 1.5rem;
+}
+
+.deleteLink {
+    text-decoration: underline;
+}
+
+.deleteLink:hover {
+    color: var(--orange);
 }
