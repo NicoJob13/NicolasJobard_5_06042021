@@ -322,15 +322,52 @@ a {
     display: flex;
     justify-content: space-between;
 }
+
 .totalPrice {
     font-weight: bold;
     padding: 1.5rem 0 0 1.5rem;
 }
 
-.deleteLink {
-    text-decoration: underline;
+.formContainer {
+    width: 60rem;
+    background-color: var(--white);
+    border: 2px solid var(--orange);
+    border-radius: var(--borderRadiusBlocks);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+
 }
 
-.deleteLink:hover {
-    color: var(--orange);
+.formInput {
+    padding: .5rem;
+}
+
+.formInput > label {
+    display: flex;
+    justify-content: center;
+    padding-bottom: .5rem;
+    color: var(--darkPurple);
+    font-weight: bold;
+}
+
+.civilityInput, .addressInput, .cityInput, .emailInput {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+}
+
+input:focus {
+    border: none;
+    outline-style: none;
+}
+
+input:valid {
+    border: none;
+    box-shadow: 0 0 5px 1px greenyellow;
+}
+
+input:focus:invalid {
+    box-shadow: 0 0 5px 1px red;
 }

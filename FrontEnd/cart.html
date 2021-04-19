@@ -34,11 +34,36 @@
                 </div>
                 <div>
                     <h3 class="sectionSubTitle">2 - Mes informations</h3>
-                    <form action="" id="orderForm"></form>
-                </div>
-                <div>
-                    <h3 class="sectionSubTitle">3 - Validation</h3>
-                    <button class="button validationButton" id="purchaseValidation">Commander</button>
+                    
+                    <form method="POST" action="orderconfirmation.html" id="orderForm">
+                        <div class="formContainer">
+                            <div class="formInput">
+                                <label for="firstName">Votre prénom</label>
+                                <input type="text" id="firstName" class="civilityInput" required pattern="[A-Z][a-z -]+" title="Votre prénom commençant par une majuscule" placeholder="Votre prénom commençant par une majuscule">
+                            </div>
+                            <div class="formInput">
+                                <label for="lastName">Votre nom</label>
+                                <input type="text" id="lastName" class="civilityInput" required pattern="[A-Z' -]+" title="Votre nom en majuscules" placeholder="Votre nom en majuscules">
+                            </div>
+                            <div class="formInput">
+                                <label for="address">Votre adresse</label>
+                                <input type="text" id="address" class="addressInput" required pattern="[A-Za-z0-9' -]+" title="Votre adresse" placeholder="Votre adresse de livraison">
+                            </div>
+                            <div class="formInput">
+                                <label for="city">Votre ville</label>
+                                <input type="text" id="city" class="cityInput" required pattern="[A-Z' -]+" title="Votre ville en majuscules" placeholder="Votre ville de livraison">
+                            </div>
+                            <div class="formInput">
+                                <label for="email">Votre adresse e-mail</label>
+                                <input type="email" id="email" class="emailInput" required pattern="[a-z0-9.-_]+[@]{1}[a-z0-9.-_]+[.]{1}[a-z]{2,10}" title="Votre adresse email respectant le format 'exemple@mail.com'" placeholder="Votre adresse email de contact">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="sectionSubTitle">3 - Validation</h3>
+                            <button type="submit" class="button validationButton" id="purchaseValidation">Commander</button>
+                        </div>
+                    </form>
+                    
                 </div>
             </section>
             

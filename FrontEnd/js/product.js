@@ -92,7 +92,7 @@ async function addToCart() {
 }
 
 function createCart() {
-    var cart = localStorage.getItem('selectedProduct');
+    let cart = localStorage.getItem('selectedProduct');
     if(cart != null) {
         return JSON.parse(cart);
     } else {
