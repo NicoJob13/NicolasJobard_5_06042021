@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,37 +8,36 @@
         <link rel="stylesheet" href="./css/styles.css">
 
 		<script src="https://kit.fontawesome.com/1ff953b2ad.js" crossorigin="anonymous"></script>
-        <script src="./js/product.js" type="text/javascript" defer></script>
+        <script src="./js/product.js" defer></script>
 
         <title>Orinoco - Page produit</title>
         <meta name="description" content="Description du produit sélectionné, options de personnalisation et ajout du produit au panier.">
     </head>
 
     <body>
-
-        <header class="container header">
-            <a class="navLink" href="../index.html"><i class="fas fa-home icons"></i>Accueil</a>
+        <header class="container header"><!--Entête de la page contenant le logo de la société, un slogan et le(s) lien(s) de navigation-->
+            <a class="navLink" href="../index.html"><i class="fas fa-home icons"></i><span class="navText">Accueil</span></a>
             <div class="logo">
                 <img src="./pictures/Logo_Orinoco.png" alt="Logo de l'entreprise constitué d'un chariot avec un dégradé du orange au violet et du nom commercial">
                 <h1 class="slogan">Orinoco, l'e-commerce thématique !</h1>
             </div>
-            <a class="navLink" href="./cart.html"><i class="fas fa-shopping-cart icons"></i>Mon panier</a>
+            <a class="navLink" href="./cart.html"><i class="fas fa-shopping-cart icons"></i><span class="navText">Mon panier</span></a>
         </header>
         
-        <main class="container main">
-            <section>
+        <main class="container main"><!--Corps de la page accueillant la fiche du produit générée via product.js, laquelle permet de personnaliser le produit, et le bouton d'ajout au panier
+            dont le fonctionnement est également géré via product.js-->
+            <div>
                 <h2 class="sectionTitle">Orinourson : Le monde des peluches !</h2>
-            </section>
-            <section id="productSheet"></section>
-            <section class="productAddCart">
-                <button class="button addCartButton" id="addCartButton">Ajouter au panier</button>
-            </section>
+            </div>
+            <div id="productSheet"></div><!--Emplacement destiné à la fiche du produit-->
+            <div class="productAddCart">
+                <button class="button addCartButton" id="addCartButton">Ajouter au panier</button><!--Bouton permettant d'ajouter le produit au panier-->
+            </div>
         </main>
         
-        <footer class="container footer">
+        <footer class="container footer"><!--Pied de page contenant le nom de la société et les informations relatives aux droits de propriété-->
             <img class="footerLogo" src="./pictures/Orinoco.png" alt="Nom de l'entreprise">
             <span class="footerRights">Tous droits réservés - 2021</span>
         </footer>
-    
     </body>
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,41 +8,38 @@
         <link rel="stylesheet" href="./css/styles.css">
 
 		<script src="https://kit.fontawesome.com/1ff953b2ad.js" crossorigin="anonymous"></script>
-        <script src="./js/orderconfirmation.js" type="text/javascript" defer></script>
+        <script src="./js/orderconfirmation.js" defer></script>
 
         <title>Orinoco - Confirmation de commande</title>
         <meta name="description" content="Confirmation de la commande avec affichage du montant total et du numéro de commande.">
     </head>
 
     <body>
-
-        <header class="container header">
-            <a class="navLink" href="../index.html"><i class="fas fa-home icons"></i>Accueil</a>
+        <header class="container header"><!--Entête de la page contenant le logo de la société, un slogan et le(s) lien(s) de navigation-->
+            <a class="navLink" href="../index.html"><i class="fas fa-home icons"></i><span class="navText">Accueil</span></a>
             <div class="logo">
                 <img src="./pictures/Logo_Orinoco.png" alt="Logo de l'entreprise constitué d'un chariot avec un dégradé du orange au violet et du nom commercial">
                 <h1 class="slogan">Orinoco, l'e-commerce thématique !</h1>
             </div>
         </header>
         
-        <main class="container main">
+        <main class="container main"><!--Corps de la page accueillant le montant total de la commande et l'orderId renvoyé par le serveur et récupéré puis affiché via orderconfirmation.js-->
             <section id="orderConfirmation" class="orderConfirmation">
                 <h2 class="sectionTitle">Votre commande a été prise en compte !</h2>
-                <div id="totalPrice">
+                <div id="totalPrice"><!--Emplacement destiné à recevoir le montant total de la commande-->
                     <h3 class="sectionSubTitle">Montant total de votre commande :</h3>
                     <span id='orderPrice'></span>
                 </div>
-                <div id="orderNumero">
+                <div id="orderNumero"><!--Emplacement destiné à recevoir l'orderId de la commande-->
                     <h3 class="sectionSubTitle">Votre numéro de commande :</h3>
                     <span id='orderId'></span>
                 </div>
             </section>
-            
         </main>
         
-        <footer class="container footer">
+        <footer class="container footer"><!--Pied de page contenant le nom de la société et les informations relatives aux droits de propriété-->
             <img class="footerLogo" src="./pictures/Orinoco.png" alt="Nom de l'entreprise">
             <span class="footerRights">Tous droits réservés - 2021</span>
         </footer>
-    
     </body>
 </html>

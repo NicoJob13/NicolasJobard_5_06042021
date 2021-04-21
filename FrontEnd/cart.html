@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,70 +8,69 @@
 		<link rel="stylesheet" href="./css/styles.css">
 
 		<script src="https://kit.fontawesome.com/1ff953b2ad.js" crossorigin="anonymous"></script>
-        <script src="./js/cart.js" type="text/javascript" defer></script>
+        <script src="./js/cart.js" defer></script>
 
         <title>Orinoco - Panier et Validation de la commande</title>
         <meta name="description" content="Récapitulatif du contenu ajouté au panier et formulaire permettant la validation de la commande.">
     </head>
 
     <body>
-
-        <header class="container header">
-            <a class="navLink" href="../index.html"><i class="fas fa-home icons"></i>Accueil</a>
+        <header class="container header"><!--Entête de la page contenant le logo de la société, un slogan et le(s) lien(s) de navigation-->
+            <a class="navLink" href="../index.html"><i class="fas fa-home icons"></i><span class="navText">Accueil</span></a>
             <div class="logo">
                 <img src="./pictures/Logo_Orinoco.png" alt="Logo de l'entreprise constitué d'un chariot avec un dégradé du orange au violet et du nom commercial">
                 <h1 class="slogan">Orinoco, l'e-commerce thématique !</h1>
             </div>
         </header>
         
-        <main class="container main">
-            <section id="order">
+        <main class="container main"><!--Corps de la page accueillant le tableau récapitulatif du panier ou un message si le panier est vide, généré via cart.js, le formulaire d'informations
+            client et la bouton de validation de la commande-->
+            <div id="order">
                 <h2 class="sectionTitle">Je commande !</h2>
                 <div>
                     <h3 class="sectionSubTitle">1 - Mon panier</h3>
-                    <div id="tableContainer"></div>
+                    <div id="tableContainer" class="cartBlockContainer"></div><!--Emplacement destiné au tableau du panier (ou au message de panier vide), suivi d'un montant total et
+                    d'un bouton permettant de vider le panier, le tout généré via cart.js-->
                 </div>
-                <div>
+                <div><!--div englobant le formulaire et le bouton de validation-->
                     <h3 class="sectionSubTitle">2 - Mes informations</h3>
-                    
-                    <form method="POST" action="orderconfirmation.html" id="orderForm">
-                        <div class="formContainer">
+                    <form method="POST" action="orderconfirmation.html" id="orderForm" class="cartBlockContainer"><!--Formulaire de commande comportant des champs à remplir par le visiteur afin
+                    de pouvoir valider sa commande, chaque champs devant être complété ('required') et respecter une expression régulière ('pattern') pour être valide, et contenant des informations
+                sur la saisie attendue ('title' et 'placeholder')-->
+                        <div class="formContainer"><!--div destinée à faciliter la mise en forme-->
                             <div class="formInput">
                                 <label for="firstName">Votre prénom</label>
-                                <input type="text" id="firstName" class="civilityInput" required pattern="[A-Z][a-z -]+" title="Votre prénom commençant par une majuscule" placeholder="Votre prénom commençant par une majuscule">
+                                <input type="text" id="firstName" required pattern="[A-Z][a-z -]+" title="Votre prénom commençant par une majuscule" placeholder="Votre prénom commençant par une majuscule">
                             </div>
                             <div class="formInput">
                                 <label for="lastName">Votre nom</label>
-                                <input type="text" id="lastName" class="civilityInput" required pattern="[A-Z' -]+" title="Votre nom en majuscules" placeholder="Votre nom en majuscules">
+                                <input type="text" id="lastName" required pattern="[A-Z' -]+" title="Votre nom en majuscules" placeholder="Votre nom en majuscules">
                             </div>
                             <div class="formInput">
                                 <label for="address">Votre adresse</label>
-                                <input type="text" id="address" class="addressInput" required pattern="[A-Za-z0-9' -]+" title="Votre adresse" placeholder="Votre adresse de livraison">
+                                <input type="text" id="address" required pattern="[A-Za-z0-9' -]+" title="Votre adresse" placeholder="Votre adresse de livraison">
                             </div>
                             <div class="formInput">
                                 <label for="city">Votre ville</label>
-                                <input type="text" id="city" class="cityInput" required pattern="[A-Z' -]+" title="Votre ville en majuscules" placeholder="Votre ville de livraison">
+                                <input type="text" id="city" required pattern="[A-Z' -]+" title="Votre ville en majuscules" placeholder="Votre ville de livraison">
                             </div>
                             <div class="formInput">
                                 <label for="email">Votre adresse e-mail</label>
-                                <input type="email" id="email" class="emailInput" required pattern="[a-z0-9.-_]+[@]{1}[a-z0-9.-_]+[.]{1}[a-z]{2,10}" title="Votre adresse email respectant le format 'exemple@mail.com'" placeholder="Votre adresse email de contact">
+                                <input type="email" id="email" required pattern="[a-z0-9.-_]+[@]{1}[a-z0-9.-_]+[.]{1}[a-z]{2,10}" title="Votre adresse email respectant le format 'exemple@mail.com'" placeholder="Votre adresse email de contact">
                             </div>
                         </div>
                         <div>
                             <h3 class="sectionSubTitle">3 - Validation</h3>
-                            <button type="submit" class="button validationButton" id="purchaseValidation">Commander</button>
+                            <button type="submit" class="button validationButton" id="purchaseValidation">Commander</button><!--Bouton de type submit pour permettre un contrôle du formulaire conditionnant l'envoi de la commande -->
                         </div>
                     </form>
-                    
                 </div>
-            </section>
-            
+            </div>
         </main>
         
-        <footer class="container footer">
+        <footer class="container footer"><!--Pied de page contenant le nom de la société et les informations relatives aux droits de propriété-->
             <img class="footerLogo" src="./pictures/Orinoco.png" alt="Nom de l'entreprise">
             <span class="footerRights">Tous droits réservés - 2021</span>
         </footer>
-    
     </body>
 </html>
