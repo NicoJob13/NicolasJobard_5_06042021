@@ -1,14 +1,28 @@
+//Le fichier product.js est destiné à gérer les actions sur la page d'un produit
+
+//On appelle la fonction permettant la création et l'affichage du contenu du panier dans un tableau
 displayCartContent();
+
+//On appelle la fonction permettant de soumettre la commande
 submitOrder();
 
-function displayCartContent() {
-    const cartContent = JSON.parse(localStorage.getItem('selectedProduct'));
-    const tableContainer = document.getElementById('tableContainer');
+//Fonction permettant l'affichage du contenu du panier
+function displayCartContent() {/*Cette fonction récupère le contenu de la clé 'selectedProduct' du local storage, alimentée précédemment - 
+Si le contenu de cette clé n'est pas nul, elle va créer et intégrer les éléments et informations nécessaires à l'affichage de ce contenu et activer
+le bouton de validation de la commande -
+Sinon elle va afficher un message indiquant au visiteur que le panier est vide*/
+    const cartContent = JSON.parse(localStorage.getItem('selectedProduct')); //Récupération du contenu du localStorage
+    const tableContainer = document.getElementById('tableContainer'); //On cible l'élément d'id 'tableContainer' dans lequel sera intégré le tableau
 
-    if(cartContent != null) {
+    if(cartContent != null) {//Si la clé du localStorage n'est pas vide
+        /*On crée successivement les éléments nécessaires à la constitution du tableau de produits, auxquels on ajoute les classes CSS souhaitées
+        (.classList.add) et le contenu en faisant aux propriétés disponibles pour l'objet récupéré du localStorage et/ou la balise utilisée*/
+        
+        //Le tableau en lui-même
         const cartTable = document.createElement('table');
         cartTable.classList.add('cartTable');
 
+        //Les titres de colonnes
         const cartTableHeader = document.createElement('tr');
         
         const cartTableHeaderProductCell = document.createElement('th');
@@ -29,8 +43,8 @@ function displayCartContent() {
         cartTableHeader.appendChild(cartTableHeaderColorCell);
         cartTableHeader.appendChild(cartTableHeaderPriceCell);
 
-        /*Création du contenu du tableau*/
-        for (let i = 0; i < cartContent.length; i++) {
+        //Le contenu du tableau
+        for (let i = 0; i < cartContent.length; i++) {//Utilisation d'une boucle pour répéter les actions pour chaque entrée trouvée
             const element = cartContent[i];
 
             const cartTableContent = document.createElement('tr');
@@ -60,10 +74,11 @@ function displayCartContent() {
             cartTableContent.appendChild(cartTableContentPriceCell);
         }
         
-        //Montant total de la commande et bouton pour vider le panier
+        //Montant total du panier et bouton pour vider le panier situés sous le panier
         const tableBottom = document.createElement('div');
         tableBottom.classList.add('tableBottom');
 
+        //Montant total
         const totalPriceContainer = document.createElement('div');
         totalPriceContainer.classList.add('totalPrice');
         const totalPriceTitle = document.createElement('span');
@@ -71,12 +86,13 @@ function displayCartContent() {
         const totalPriceContent = document.createElement('span');
         totalPriceContent.id = 'totalPrice';
         let totalPrice = 0;
-        for (let j = 0; j < cartContent.length; j++) {
+        for (let j = 0; j < cartContent.length; j++) {//Utilisation d'une boucle pour ajouter le montant du produit à chaque itération
             let productPrice = cartContent[j].price;
             totalPrice = totalPrice + productPrice;
         }
         totalPriceContent.textContent = totalPrice + ",00 €";
 
+        //Bouton de vidage
         const clearCartButton = document.createElement('button');
         clearCartButton.classList.add('button', 'clearCartButton');
         clearCartButton.id = 'clearCartButton';
@@ -88,12 +104,13 @@ function displayCartContent() {
         totalPriceContainer.appendChild(totalPriceContent);
         tableBottom.appendChild(clearCartButton);
 
+        //Fonction permettant de vider la clé du localStorage au clic sur le bouton ce qui entraîne le vidage du panier
         clearCartButton.addEventListener('click', function() {
             localStorage.clear();
-            confirm('Confirmez-vous la suppression de votre panier ?');
+            confirm('Confirmez-vous la suppression de votre panier ?'); //Demande de confirmation pour éviter les erreurs
             location.reload();
         });
-    } else {
+    } else {//Affichage d'un message
         const emptyCart = document.createElement('p');
         emptyCart.classList.add('emptyCart');
         emptyCart.textContent = 'Votre panier est vide, il faut vite y remédier !';
@@ -101,6 +118,7 @@ function displayCartContent() {
     }
 }
 
+//Création d'une classe contenant un constructor pour faciliter la création ultérieure de l'objet contact à envoyer au serveur
 class Contact {
     constructor(firstName, lastName, address, city, email) {
         this.firstName = firstName;
@@ -111,6 +129,7 @@ class Contact {
     }
 }
 
+//Fonction permettant d'envoyer la commande au serveur
 function submitOrder() {
     //Récupération du contenu du panier depuis le localStorage
     const cartContent = JSON.parse(localStorage.getItem('selectedProduct'))
@@ -120,10 +139,10 @@ function submitOrder() {
     validationButton.disabled = true;
 
     //Mise en place d'une condition pour activer le bouton "commander" afin de permettre l'envoi de la commande
-    if(cartContent != null) {
+    if(cartContent != null) {//Si la clé du localStorage n'est pas vide on active le bouton
         validationButton.disabled = false;
         
-        const orderForm = document.getElementById('orderForm');
+        const orderForm = document.getElementById('orderForm'); //On cible le formulaire car c'est lui qui est soumis
 
         //Ecoute de l'évènement "submit", lequel déclenche la création des éléments nécessaires à la requête, puis la requête elle même
         orderForm.addEventListener('submit', function() {
