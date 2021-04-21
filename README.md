@@ -32,3 +32,11 @@ En tant que développeur front-end au sein de la société Orinoco, entreprise d
 * Le lien vers un dépôt Git public contenant le code de l'application web, permettant de cloner le référentiel, d'ouvrir
 index.html, d'utiliser l'application entièrement opérationnelle et de confirmer que n’importe quel input utilisateur est validé.
 * Un plan de tests.
+## Comment utiliser ce dépôt
+* S'assurer au préalable de disposer de node.js sur le poste (pour utiliser npm pour l'installation des dépendances du projet), sinon le télécharger (https://nodejs.org/) puis l'installer;
+* Récupérer les fichiers du dépôt en le clonant ou en téléchargeant l'archive *.zip;
+* En cas de téléchargement de l'archive, la décompresser;
+* Ouvrir le dossier BackEnd dans son IDE;
+* Ouvrir un terminal et installer les dépendances en tapant la commande : npm install ;
+* Lancer le serveur en tapant la commande : node server.js ;
+* Ouvrir le dossier FrontEnd dans son IDE et utiliser un plugin comme Live Server sur VSCode pour tester le site dans un navigateur;
