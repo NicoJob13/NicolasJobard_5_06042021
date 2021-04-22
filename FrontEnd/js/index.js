@@ -54,7 +54,7 @@ function createProductsGallery() {
 
     //Le texte de la card
     const galleryCardText = document.createElement('div');
-    galleryCardText.classList.add('cardText', 'galleryCardText');
+    galleryCardText.classList.add('galleryCardText');
 
     const productCardTitle = document.createElement('h3');
     productCardTitle.classList.add('productCardTitle');

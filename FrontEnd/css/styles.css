@@ -1,46 +1,120 @@
+/*=================================================================*/
+/*===================Import des polices nécessaires================*/
+/*=================================================================*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 
+/*=================================================================*/
+/*========================Création de variables====================*/
+/*=================================================================*/
 :root {
     --lightPurple: #f3e9f1;
     --purple: #8f5bfe;
-    --darkPurple : #261624;
+    --darkPurple: #261624;
     --orange: #ce7a06;
     --black: #333333;
     --white: #f9f9f9;
-    --disabled : #8f8f8f;
-    --borderRadiusBlocks: 1rem;
-    --borderRadiusCards: 1rem;
+    --disabled: #8f8f8f;
+    --borderRadius: 1rem;
 }
 
+/*=================================================================*/
+/*================Styles communs à plusieurs pages=================*/
+/*=================================================================*/
 body {
     font-family: 'Open Sans', Arial, sans-serif;
     box-sizing: border-box;
 }
-
-a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .container {
     max-width: 1440px;
     margin: 1rem auto;
     background-color: var(--lightPurple);
-    border-radius: var(--borderRadiusBlocks);
+    border-radius: var(--borderRadius);
 }
-
 .title {
     font-family: 'New Tegomin', 'Times New Roman', serif;
 }
-
+.sectionTitle {
+    color: var(--darkPurple);
+    font-size: 1.8rem;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+.sectionSubTitle {
+    text-align: center;
+    padding-top: 1rem;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
 .icons {
     color: var(--purple);
-    padding-right: 1rem;
+    padding: 0 1rem;
 }
-
+/*******************************Header******************************/
+/*******************************************************************/
+.header {
+    height: 6rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 1rem 0 0 0;
+}
+/*-----------------------------NavLinks----------------------------*/
+.navLink {
+    font-family: 'New Tegomin', 'Times New Roman', serif;
+    font-size: 1.2rem;
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navLink:hover {
+    font-weight: bold;
+}
+/*--------------------------Logo et Slogan-------------------------*/
+.logo {
+    grid-column: 2 / 2;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    max-height: 3rem;
+}
+.slogan {
+    font-size: .9rem;
+    text-align: center;
+}
+/********************************Main*******************************/
+/*******************************************************************/
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+/*******************************Footer******************************/
+/*******************************************************************/
+.footer {
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+    color: var(--purple);
+    font-size: .7rem;
+}
+.footerLogo {
+    height: 2.5rem;
+}
+/*******************************Boutons*****************************/
+/*******************************************************************/
 .button {
-    border-radius: var(--borderRadiusCards);
+    border-radius: var(--borderRadius);
     background-color: var(--orange);
     color: var(--white);
     font-size: .9rem;
@@ -50,160 +124,44 @@ a {
     align-items: center;
     margin: 0 auto 1rem auto;
 }
-
 .button:hover {
     cursor: pointer;
     box-shadow: 0 0.1rem 0.4rem 0.1rem #c2c2c2;
 }
-
 .button:focus {
     outline-style: none;
 }
-
 .button:disabled {
     background-color: var(--disabled);
 }
-
 .button:disabled:hover {
     cursor: initial;
     box-shadow: none;
 }
-
-.header {
-    min-height: 3rem;
-    height: 6rem;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    padding: 1rem 0 0 0;
+.addCartButton, .clearCartButton, .validationButton {
+    height: 2rem;
+    width: 12rem;
+    align-self: center;
 }
-
-.navLink {
-    font-family: 'New Tegomin', 'Times New Roman', serif;
-    font-size: 1.2rem;
-    color: var(--purple);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.navLink:hover {
-    font-weight: bold;
-}
-
-.logo {
-    grid-column: 2 / 2;
-    height: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    max-height: 3rem;
-}
-
-.slogan {
-    font-size: .9rem;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.gallery {
-    margin: 1rem 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.sectionTitle {
-    text-align: center;
-    color: var(--darkPurple);
-    font-size: 1.8rem;
-    margin-top: 1.5rem;
-}
-
-.sectionSubTitle {
-    text-align: center;
-}
-
-.card {/*Container de card*/
+/********************************Cards******************************/
+/*******************************************************************/
+.card {/*Container*/
     background-color: var(--white);
-    border-radius: var(--borderRadiusCards);
+    border-radius: var(--borderRadius);
     border: .25rem solid var(--orange);
     display: flex;
-    box-shadow: 0 0.1rem 0.4rem 0.1rem #eaeaea;
+    box-shadow: 0 0.1rem 0.4rem 0.1rem #a7a7a7;
     overflow: hidden;
-    margin: 2rem;
+    margin: .5rem 1rem 1rem 1rem;
 }
-
-.galleryCard {
-    height: 20rem;
-    width: 20rem;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.galleryCard:hover {
-    box-shadow: 0 0.1rem 0.4rem 0.1rem #c2c2c2;
-}
-
-.productCard {
-    max-height: 30rem;
-    max-width: 50rem;
-    box-shadow: 0 0.1rem 0.4rem 0.1rem #c2c2c2;
-    justify-content: space-between;
-}
-
-.pictureContainer {/*Container de la photo, mis en place pour permettre un effet de zoom de l'image qu'il contient, par un scale au hover*/
-    position: relative;
-    height: 16rem;
-    width: 100%;
-    display: flex;
-    overflow: hidden;
-}
-
-.pictureContainer:hover .productPicture {/*Propriétés du scale au hover*/
-    transform: scale(1.1);
-}
-  
-.productPicture {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: 1000ms ease-out;
-}
-
-.cardText {/*Container du texte des cards*/
-    display: flex;
-}
-
-.galleryCardText {
-    height: 4rem;
-    padding: 0 1rem;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    color: var(--darkPurple);
-}
-
-.galleryCardText:hover {
-    background-color: var(--lightPurple);
-}
-
 .productCardTitle {
     margin: 0;
     font-size: 1.1rem;
 }
-
 .productPrice {
     width: 3.5rem;
     padding: .3rem 1rem;
-    border-radius: var(--borderRadiusCards);
+    border-radius: var(--borderRadius);
     background-color: var(--orange);
     color: var(--white);
     font-size: .9rem;
@@ -212,148 +170,174 @@ a {
     justify-content: center;
 }
 
+/*=================================================================*/
+/*===================Styles propres à index.html===================*/
+/*=================================================================*/
+/****************************Gallery********************************/
+/*******************************************************************/
+.gallery {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+/********************************Cards******************************/
+/*******************************************************************/
+.galleryCard {
+    height: 20rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.galleryCard:hover {
+    box-shadow: 0 0.1rem 0.4rem 0.1rem #c2c2c2;
+}
+.pictureContainer {/*Container de la photo, mis en place pour permettre un effet de zoom de l'image qu'il contient, par un scale au hover*/
+    position: relative;
+    height: 16rem;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+.productPicture {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 1000ms ease-out;
+}
+.pictureContainer:hover .productPicture {/*Propriétés du scale de la photo au hover sur son container*/
+    transform: scale(1.1);
+}
+.galleryCardText {
+    height: 4rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--darkPurple);
+}
+.galleryCardText:hover {
+    background-color: var(--lightPurple);
+}
+
+/*=================================================================*/
+/*==================Styles propres à product.html==================*/
+/*=================================================================*/
+/************************Product Sheet Cards************************/
+/*******************************************************************/
+/*---------------------Dimensions du container---------------------*/
 .productSheetCard {
     height: 20rem;
     width: 55rem;
 }
-
-.productSheetPicture {
+/*----------------------Dimensions de l'image----------------------*/
+.productSheetPicture {/**/
     height: 100%;
     width: 25rem;
     object-fit: cover;
 }
-
+/*-------------Affichage de la partie descriptive------------------*/
 .productDescriptionContainer {
     padding: .5rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-
 .productDescriptionPrice {
     align-self: flex-end;
 }
-
 .productDescription {
     text-align: justify;
 }
-
 .productDescriptionText {
     font-size: .9rem;
 }
-
+/*-----Gestion du menu déroulant de personnalisation du produit----*/
 .customizationForm {
     padding: .9rem 0;
     display: flex;
     flex-direction: column;
 }
-
 .customizationFormLabel {
     font-size: .9rem;
     padding-bottom: .5rem;
 }
-
+/******************Zone du bouton d'ajout au panier*****************/
+/*******************************************************************/
 .productAddCart {
     padding-bottom: 1rem;
 }
 
-.addCartButton, .clearCartButton, .validationButton {
-    height: 2rem;
-    width: 12rem;
-    align-self: center;
+/*=================================================================*/
+/*===================Styles propres à cart.html====================*/
+/*=================================================================*/
+.cartBlockContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.clearCartButton {
-    margin: 1rem 1.5rem;
-}
-
-.footer {
-    height: 4rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 2fr 1fr;
-}
-
-.footerLogo {
-    grid-column: 2 / 2;
-    grid-row: 1/1;
-    max-height: 2rem;
-    margin: auto;
-}
-
-.footerRights {
-    grid-column: 2 / 2;
-    grid-row: 2 / 2;
-    font-size: .7rem;
-    color: var(--purple);
-    margin: auto;
-}
-
-.emptyCart {
-    text-align: center;
-}
-
+/*******************Zone du tableau récapitulatif*******************/
+/*******************************************************************/
+/*----------------Les styles appliqués au tableau------------------*/
 .cartTable {
     width: 60rem;
     background-color: var(--white);
     border: 2px solid var(--orange);
-    border-radius: var(--borderRadiusBlocks);
+    border-radius: var(--borderRadius);
     border-spacing: 0;
-    overflow: hidden;
 }
-
 .cartTableCell {
-    height: 2.5rem;
+    height: 2rem;
     width: 15rem;
     text-align: center;
-    padding: .5rem 0;
+    padding: .5rem 1rem;
 }
-
 .cartTableProductCell {
     display: flex;
     justify-content: space-around;
+    align-content: center;
 }
-
-.cartTableContentProductCellPicture {
-    width: 4rem;
-    height: 4rem;
-    padding: 0 1rem;
-    object-fit: contain;
-    justify-self: flex-start;
-}
-
 .cartTableContentProductCellName {
     display: flex;
-    align-items: flex-end;
-    justify-self: flex-start;
+    margin: auto 0;
 }
-
+/*--------------------Message de panier vide-----------------------*/
+.emptyCart {
+    text-align: center;
+}
+/**************Zone du montant total et vidage panier***************/
+/*******************************************************************/
 .tableBottom {
     display: flex;
     justify-content: space-between;
 }
-
+/*-------------------------Montant total---------------------------*/
 .totalPrice {
     font-weight: bold;
     padding: 1.5rem 0 0 1.5rem;
 }
-
+/*-----------------------Bouton de vidage--------------------------*/
+.clearCartButton {
+    margin: 1rem 1.5rem;
+}
+/***********************Zone du formulaire**************************/
+/*******************************************************************/
 .formContainer {
     width: 60rem;
     background-color: var(--white);
     border: 2px solid var(--orange);
-    border-radius: var(--borderRadiusBlocks);
+    border-radius: var(--borderRadius);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem 0;
-
 }
-
 .formInput {
-    padding: .5rem;
+    padding: .5rem 0;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
 }
-
 .formInput > label {
     display: flex;
     justify-content: center;
@@ -361,29 +345,92 @@ a {
     color: var(--darkPurple);
     font-weight: bold;
 }
-
-.civilityInput, .addressInput, .cityInput, .emailInput {
-    display: flex;
-    flex-direction: column;
-    width: 30rem;
-}
-
-input:focus {
+input:focus:invalid {
     border: none;
-    outline-style: none;
+    box-shadow: 0 0 6px 2px red;
 }
-
 input:valid {
     border: none;
-    box-shadow: 0 0 5px 1px greenyellow;
+    box-shadow: 0 0 6px 2px greenyellow;
 }
 
-input:invalid {
-    border: none;
-    box-shadow: 0 0 5px 1px red;
-}
-
+/*=================================================================*/
+/*=============Styles propres à orderconfirmation.html=============*/
+/*=================================================================*/
 .orderConfirmation {
     text-align: center;
     padding-bottom: 2rem;
+}
+
+/*=================================================================*/
+/*==================Gestion de l'aspect responsive=================*/
+/*=================================================================*/
+@media screen and (max-width: 767px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .logo img {
+        max-height: 2rem;
+    }
+    .navText {
+        display: none;
+    }
+    .sectionTitle {
+        font-size: 1.2rem;
+        padding: 1rem .5rem 0 .5rem;
+    }
+    .galleryCard, .formInput {
+        width: calc(100vw - 4rem);
+    }
+    .productSheetCard {
+        height: 35rem;
+        width: calc(100vw - 4rem);
+        flex-direction: column;
+    }
+    .productSheetPicture {
+        height: 15rem;
+        width: 100%;
+    }
+    .productDescriptionContainer {
+        height: 20rem;
+    }
+    .productDescriptionPrice {
+        order: 2;
+        align-self: center;
+        justify-self: end;
+    }
+    .cartTable, .formContainer {
+        width: calc(100vw - 2rem);
+    }
+    .cartTableCell {
+        width: 8rem;
+        margin: 0;
+        padding: .5rem .3rem;
+    }
+    .tableBottom {
+        flex-direction: column;
+    }
+    .totalPrice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+        line-height: 1.8rem;
+    }
+    ::placeholder {
+        font-size: .7rem;
+    }
+}
+@media screen and (min-width:768px) and (max-width: 1023px) {
+    .productSheetCard {
+        height: 25rem;
+        width: 40rem;
+    }
+    .productSheetPicture {
+        width: 20rem;
+    }
+    .cartTable, .formContainer {
+        width: calc(100vw - 4rem);
+    }
 }
