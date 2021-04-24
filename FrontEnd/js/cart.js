@@ -191,7 +191,7 @@ function submitOrder() {
                 //On stocke l'orderId contenu dans la réponse du serveur dans le localStorage
                 localStorage.setItem('orderId', JSON.stringify(orderData.orderId));
                 //On redirige vers la page de confirmation
-                window.location.href = 'orderconfirmation.html';
+                window.location.href = './orderconfirmation.html';
             })
             .catch(function(error) {//Si une erreur survient elle est affichée dans la console
                 console.log(error);
