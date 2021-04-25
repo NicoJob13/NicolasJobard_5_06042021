@@ -1,65 +1,62 @@
-//Le fichier index.js est destiné à gérer les actions sur la page d'accueil du site
+/************************************************DESCRIPTION*************************************************
+*************************************************************************************************************
+Le fichier index.js est destiné à gérer les actions sur la page d'accueil du site*/
 
-//Appel de la fonction permettant l'affichage de la galerie de produits
+/*********************************APPEL DE LA FONCTION D'AFFICHAGE DE LA GALERIE*****************************
+************************************************************************************************************/
 displayProductsGallery();
 
-async function displayProductsGallery() {/*Fonction asynchrone car il faut au préalable récupérer les
-    informations sur les produits depuis le serveur via la fonction 'getProducts'*/
-    const products = await getProducts();
-
+/*****************************************AFFICHAGE DE LA GALERIE********************************************
+************************************************************************************************************/
+//Fonction asynchrone pour récupérer au préalable les informations depuis le serveur
+async function displayProductsGallery() {
+    const products = await getProducts(); //Appel de la fonction 'getProducts'
     createProductsGallery(); //Puis appel de la fonction créant la galerie
-
-    for (product of products) {/*Pour chaque produit, création d'une card et intégration à la galerie
-    par appel de la fonction 'createProductCard'*/
+    for (product of products) {//Boucle de création d'une card et intégration à la galerie pour chaque produit
         createProductCard(product);
     }
 }
 
-//Fonction créant la galerie que l'on intègre dans la balise HTML d'id "productSection"
+/******************************************CREATION DE LA GALERIE********************************************
+************************************************************************************************************/
+/*-------Fonction de création de la galerie et intégration dans la balise HTML d'id "productSection"-------*/
 function createProductsGallery() {
-    const productsSection = document.getElementById('productSection'); //On cible l'élément d'id 'productSection'
-    const productsGallery = document.createElement('div'); //On crée une div...
+    const productsSection = document.getElementById('productSection'); //Ciblage l'élément parent
+    const productsGallery = document.createElement('div'); //Création d'une div pour la galerie...
     productsGallery.id = 'productsGallery';
     productsGallery.classList.add('gallery');
-    productsSection.appendChild(productsGallery); //...que l'on intègre dans l'élément d'id 'productSection'
+    productsSection.appendChild(productsGallery); //...intégrée dans l'élément parent
 }
 
-//Fonction créant une card de produit et l'intégrant à la galerie
+/*-----------------Fonction de création d'une card de produit et d'intégration à la galerie----------------*/
 function createProductCard() {
-    // On cible l'élément d'id 'productsGallery'
+    // Ciblage de l'élément parent
     const productsGallery = document.getElementById('productsGallery');
-
-    /*Création des éléments nécessaires pour une card, ajout des classes CSS et du contenu*/
-    //La card
+    //Création des éléments nécessaires (balises HTML) et de leur contenu (classes CSS, texte...)
+    //Container de la card
     const galleryCard = document.createElement('article');
     galleryCard.classList.add('card', 'galleryCard');
-
-    //Le lien vers la page du produit
+    //Lien vers la page du produit
     const productLink = document.createElement('a');
     productLink.href = './product.html?id=' + product._id;
-    
-    //L'image du produit
+    //Image du produit
     const pictureContainer = document.createElement('div');
     pictureContainer.classList.add('pictureContainer');
-
     const productPicture = document.createElement('img');
     productPicture.classList.add('productPicture');
     productPicture.src = product.imageUrl;
-
-    //Le texte de la card
+    //Texte de la card avec titre et prix
     const galleryCardText = document.createElement('div');
     galleryCardText.classList.add('galleryCardText');
-
+    ///Titre
     const productCardTitle = document.createElement('h3');
     productCardTitle.classList.add('productCardTitle');
     productCardTitle.textContent = product.name;
-
-    //Le prix du produit
+    ///Prix
     const productPrice = document.createElement('span');
     productPrice.classList.add('productPrice');
     productPrice.textContent = product.price / 100 + ",00 €";
-    
-    /*On intègre les éléments les uns dans les autres afin de créer la card et de l'intégrer à la galerie*/
+    //Imbrication des éléments les uns dans les autres pour créer la card
     productsGallery.appendChild(galleryCard);
     galleryCard.appendChild(productLink);
     productLink.appendChild(pictureContainer);
@@ -69,16 +66,18 @@ function createProductCard() {
     galleryCardText.appendChild(productPrice);
 }
 
-//Fonction permettant d'interroger le serveur via une requête GET réalisée à l'aide de l'API fetch
+/****************************RECUPERATION DES DONNEES DES PRODUITS DEPUIS LE SERVEUR*************************
+************************************************************************************************************/
+//Fonction permettant d'interroger le serveur via une requête GET réalisée avec l'API fetch
 function getProducts() {//Cette fonction va retourner le résultat de la requête
     return fetch(`http://localhost:3000/api/teddies`) //Adresse du serveur passée en paramètre de la requête
-        .then(function(response) {//On récupère la réponse sous forme d'objet JSON
+        .then(function(response) {//Récupération de la réponse sous forme d'objet JSON
         return response.json();
         })
-        .then(function(products) {//Puis on récupère les données
+        .then(function(products) {//Récupération des données
         return products;
         })
-        .catch(function(error) {//En cas d'erreur elle est affichée dans la console
+        .catch(function(error) {//En cas d'erreur affichage dans la console
         console.log(error);
     });
 }
