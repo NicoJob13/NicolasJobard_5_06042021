@@ -9,9 +9,9 @@
 /*=================================================================*/
 :root {
     --lightPurple: #f3e9f1;
-    --purple: #8f5bfe;
+    --purple: #7739fe;
     --darkPurple: #261624;
-    --orange: #ce7a06;
+    --orange: #df8507;
     --black: #333333;
     --white: #f9f9f9;
     --disabled: #8f8f8f;
@@ -107,6 +107,7 @@ a {
     padding: 1rem 0;
     color: var(--purple);
     font-size: .7rem;
+    font-weight: bold;
 }
 .footerLogo {
     height: 2.5rem;
@@ -116,7 +117,7 @@ a {
 .button {
     border-radius: var(--borderRadius);
     background-color: var(--orange);
-    color: var(--white);
+    color: var(--darkPurple);
     font-size: .9rem;
     font-weight: 600;
     display: flex;
@@ -163,7 +164,7 @@ a {
     padding: .3rem 1rem;
     border-radius: var(--borderRadius);
     background-color: var(--orange);
-    color: var(--white);
+    color: var(--darkPurple);
     font-size: .9rem;
     font-weight: 600;
     display: flex;
