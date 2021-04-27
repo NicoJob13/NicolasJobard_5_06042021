@@ -198,7 +198,7 @@ function createContact() {
     const contact = new Contact(firstName.value, lastName.value, address.value, city.value, email.value);
     return contact;
 }
-/*-----------------------------Fonction récupérant le prix dans le localStorage----------------------------*/
+/*-----------------------------Fonction sauvegardant le prix dans le localStorage----------------------------*/
 function saveTotalAmount() {
     const orderPrice = document.getElementById('totalPrice').textContent; //Ciblage et récupération du prix
     localStorage.setItem('orderPrice', JSON.stringify(orderPrice)); //Sauvegarde dans le localStorage
