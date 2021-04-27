@@ -71,13 +71,13 @@ function createProductCard() {
 //Fonction permettant d'interroger le serveur via une requête GET réalisée avec l'API fetch
 function getProducts() {//Cette fonction va retourner le résultat de la requête
     return fetch(`http://localhost:3000/api/teddies`) //Adresse du serveur passée en paramètre de la requête
-        .then(function(response) {//Récupération de la réponse sous forme d'objet JSON
+    .then(function(response) {//Récupération de la réponse sous forme d'objet JSON
         return response.json();
-        })
-        .then(function(products) {//Récupération des données
+    })
+    .then(function(products) {//Récupération des données
         return products;
-        })
-        .catch(function(error) {//En cas d'erreur affichage dans la console
+    })
+    .catch(function(error) {//En cas d'erreur affichage dans la console
         console.log(error);
     });
 }

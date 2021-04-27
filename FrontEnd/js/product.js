@@ -46,7 +46,21 @@ async function createProductSheet() {
     const customizationForm = document.createElement('form');
     customizationForm.id = 'customizationForm';
     customizationForm.classList.add('customizationForm');
-    createOptionSelector(); //Appel de la fonction de création du menu déroulant
+    const customizationFormLabel = document.createElement('label');
+    customizationFormLabel.textContent = 'Choisissez votre couleur : ';
+    customizationFormLabel.setAttribute('for', "productColor");
+    customizationFormLabel.classList.add('customizationFormLabel');
+    const customizationFormSelect = document.createElement('select');
+    customizationFormSelect.name = 'color';
+    customizationFormSelect.id = 'productColor';
+    const customizationOption = productData.colors;
+    for (let i = 0; i < customizationOption.length; i++) {//Boucle pour créer les options du menu déroulant
+        const element = customizationOption[i];
+        const optionValue = document.createElement('option');
+        optionValue.value = element;
+        optionValue.textContent = element;
+        customizationFormSelect.appendChild(optionValue);
+    }
     //Imbrication des éléments les uns dans les autres pour créer la card
     productSheet.appendChild(productSheetCard);
     productSheetCard.appendChild(productSheetPicture);
@@ -59,30 +73,8 @@ async function createProductSheet() {
     productDescriptionContainer.appendChild(productCustomization);
     productCustomization.appendChild(productCustomizationTitle);
     productCustomization.appendChild(customizationForm);
-}
-
-/*-----Fonction de création du menu déroulant de sélection d'option asynchrone pour les mêmes raisons------*/
-async function createOptionSelector() {
-    const productData = await getProductData(); //Appel de la fonction 'getProductData'
-    const customizationForm = document.getElementById('customizationForm'); //Ciblage de l'élément parent
-    //Création des éléments nécessaires (balises HTML) et de leur contenu (classes CSS, texte...)
-    const customizationFormLabel = document.createElement('label');
-    customizationFormLabel.textContent = 'Choisissez votre couleur : ';
-    customizationFormLabel.setAttribute('for', "productColor");
-    customizationFormLabel.classList.add('customizationFormLabel');
     customizationForm.appendChild(customizationFormLabel);
-    const customizationFormSelect = document.createElement('select');
-    customizationFormSelect.name = 'color';
-    customizationFormSelect.id = 'productColor';
     customizationForm.appendChild(customizationFormSelect);
-    const customizationOption = productData.colors;
-    for (let i = 0; i < customizationOption.length; i++) {//Boucle pour créer les options du menu déroulant
-        const element = customizationOption[i];
-        const optionValue = document.createElement('option');
-        optionValue.value = element;
-        optionValue.textContent = element;
-        customizationFormSelect.appendChild(optionValue);
-    }
 }
 
 /*********************************************L'AJOUT AU PANIER**********************************************

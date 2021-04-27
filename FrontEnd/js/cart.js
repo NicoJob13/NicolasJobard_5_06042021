@@ -151,12 +151,6 @@ function submitOrder() {
     });
 }
 /*---------------------------Fonction de création de l'objet à envoyer au serveur---------------------------*/
-function createOrderContent() {
-    const products = createProducts(); //Création de l'array contenant le(s) produit(s)
-    const contact = createContact(); //Création de l'objet contenant les informations de contact
-    const orderContent = new OrderContent(products, contact); //Création de l'objet envoyé au serveur
-    return orderContent;
-}
 //Classe avec un constructor pour la création de l'objet envoyé
 class OrderContent {
     constructor(products, contact) {
@@ -164,6 +158,14 @@ class OrderContent {
         this.contact = contact;
     }
 }
+//Fonction pour créer l'objet
+function createOrderContent() {
+    const products = createProducts(); //Création de l'array contenant le(s) produit(s)
+    const contact = createContact(); //Création de l'objet contenant les informations de contact
+    const orderContent = new OrderContent(products, contact); //Création de l'objet envoyé au serveur
+    return orderContent;
+}
+
 /*-------------------------------Fonction de création de l'array de product_id-----------------------------*/
 function createProducts() {
     let products = []; //Variable "products" destinée à contenir l'array de product_id
@@ -175,6 +177,17 @@ function createProducts() {
     return products;
 }
 /*--------------------------------Fonction de création de l'objet contact---------------------------------*/
+//Classe avec un constructor pour la création de l'objet contact
+class Contact {
+    constructor(firstName, lastName, address, city, email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.email = email;
+    }
+}
+//Fonction pour créer l'objet
 function createContact() {
     //Ciblage des inputs du formulaire
     const firstName = document.getElementById('firstName');
@@ -185,16 +198,6 @@ function createContact() {
     //Création de l'objet "contact" par appel de la classe Contact
     const contact = new Contact(firstName.value, lastName.value, address.value, city.value, email.value);
     return contact;
-}
-//Classe avec un constructor pour la création de l'objet contact
-class Contact {
-    constructor(firstName, lastName, address, city, email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.email = email;
-    }
 }
 /*-----------------------------Fonction récupérant le prix dans le localStorage----------------------------*/
 function saveTotalAmount() {
