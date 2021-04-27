@@ -27,7 +27,6 @@ function createProductsGallery() {
     productsGallery.classList.add('gallery');
     productsSection.appendChild(productsGallery); //...intégrée dans l'élément parent
 }
-
 /*-----------------Fonction de création d'une card de produit et d'intégration à la galerie----------------*/
 function createProductCard() {
     // Ciblage de l'élément parent
@@ -45,6 +44,7 @@ function createProductCard() {
     const productPicture = document.createElement('img');
     productPicture.classList.add('productPicture');
     productPicture.src = product.imageUrl;
+    productPicture.alt = 'Photographie du produit';
     //Texte de la card avec titre et prix
     const galleryCardText = document.createElement('div');
     galleryCardText.classList.add('galleryCardText');
@@ -77,7 +77,7 @@ function getProducts() {//Cette fonction va retourner le résultat de la requêt
     .then(function(products) {//Récupération des données
         return products;
     })
-    .catch(function(error) {//En cas d'erreur affichage dans la console
+    .catch(function(error) {//En cas d'erreur, affichage dans la console
         console.log(error);
     });
 }

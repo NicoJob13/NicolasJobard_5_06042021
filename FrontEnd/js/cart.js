@@ -1,6 +1,6 @@
 /************************************************DESCRIPTION*************************************************
 *************************************************************************************************************
-Le fichier cart.js est destiné à gérer les actions sur la page d'un produit*/
+Le fichier cart.js est destiné à gérer les actions sur la page du panier*/
 
 /********************************************APPEL DES FONCTIONS*********************************************
 ************************************************************************************************************/
@@ -18,8 +18,8 @@ function displayCartContent() {
         createTable(); //La structure générale du tableau
         createTableContent(); //Le contenu du tableau
         createTableBottom(); //Zone sous le tableau avec total et vidage panier
-    } else {//Affichage d'un message
-        emptyCartMessage();
+    } else {//Si elle est vide
+        emptyCartMessage(); //Affichage d'un message
     }
 }
 /*-----------------------------Fonction créant la structure globale du tableau----------------------------*/
@@ -105,7 +105,7 @@ function createTableBottom() {
     clearCartButton.id = 'clearCartButton';
     clearCartButton.textContent = 'Vider mon panier';
     clearCartButton.addEventListener('click', clearCart); //Vidage du panier au clic sur le bouton
-    //Intégration des divers éléments et dans le container du tableau
+    //Imbrication des divers éléments et intégration dans le container du tableau
     tableContainer.appendChild(tableBottom);
     tableBottom.appendChild(totalPriceContainer);
     totalPriceContainer.appendChild(totalPriceTitle);
@@ -165,7 +165,6 @@ function createOrderContent() {
     const orderContent = new OrderContent(products, contact); //Création de l'objet envoyé au serveur
     return orderContent;
 }
-
 /*-------------------------------Fonction de création de l'array de product_id-----------------------------*/
 function createProducts() {
     let products = []; //Variable "products" destinée à contenir l'array de product_id
@@ -227,7 +226,7 @@ function postOrderContent(orderContent) {
 
 /******************************************RECUPERATION DU PANIER********************************************
 ************************************************************************************************************/
-/*--------------Fonction retournant le conenu de la clé 'selectedProduct du localStorage-------------------*/
+/*--------------Fonction retournant le conenu de la clé 'selectedProduct' du localStorage-------------------*/
 function lookForCartContent() {
     return JSON.parse(localStorage.getItem('selectedProduct'));
 }

@@ -21,6 +21,7 @@ async function createProductSheet() {
     const productSheetPicture = document.createElement('div');
     const productSheetImg = document.createElement('img');
     productSheetImg.src = productData.imageUrl;
+    productSheetImg.alt = 'Photographie du produit';
     productSheetImg.classList.add('productSheetPicture');
     //Zone de description contenant le prix, le texte descriptif et la personnalisation
     const productDescriptionContainer = document.createElement('div');
@@ -79,12 +80,11 @@ async function createProductSheet() {
 
 /*********************************************L'AJOUT AU PANIER**********************************************
 ************************************************************************************************************/
-/*-----------------------------Fonction d'ajout du produit au panier au click------------------------------*/
-function addToCart() {//Ciblage du bouton 'Ajouter...', écoute de l'évènement 'click' qui déclenche 'pushToCart'
+/*-----------------------------Fonction d'ajout du produit au panier au clic------------------------------*/
+function addToCart() {//Ciblage du bouton, écoute de l'évènement 'click' qui déclenche 'pushToCart'
     const addCartButton = document.getElementById('addCartButton');
     addCartButton.addEventListener('click', pushToCart);
 }
-
 /*------------------------Envoi de l'objet customizedProduct vers le localStorage--------------------------*/
 //Fonction asynchrone pour récupérer au préalable l'objet 'customizedProduct' puis push
 async function pushToCart() {
@@ -107,7 +107,6 @@ function createCart() {
 function saveCart(customizedProduct) {
     localStorage.setItem('selectedProduct', JSON.stringify(customizedProduct));
 }
-
 /*---------------------------------Création de l'objet customizedProduct-----------------------------------*/
 //Création d'une classe contenant un constructor pour la création de l'objet à ajouter au panier
 class CustomizedProduct {
@@ -119,11 +118,11 @@ class CustomizedProduct {
         this.picture = picture;
     }
 }
-//Fonction de création de l'objet du produit sélectionné
+//Fonction de création de l'objet du produit personnalisé
 async function createCustomizedProduct() {
     const productData = await getProductData();
-    const colorSelector = document.getElementById('productColor'); //On cible le selecteur de couleur
-    const selectedColor = colorSelector.options[colorSelector.selectedIndex].value; //On récupère la couleur sélectionnée
+    const colorSelector = document.getElementById('productColor'); //Ciblage du selecteur de couleur
+    const selectedColor = colorSelector.options[colorSelector.selectedIndex].value; //Récupération de la couleur sélectionnée
     const customizedProduct = new CustomizedProduct(productData._id, productData.name, selectedColor, productData.price / 100, productData.imageUrl);
     return customizedProduct;
 }

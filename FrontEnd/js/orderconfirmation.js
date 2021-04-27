@@ -9,7 +9,7 @@ clearCart();
 
 /*************************************AFFICHAGE DU RECAPITULATIF DE COMMANDE*********************************
 ************************************************************************************************************/
-//Fonction récupérant l'order Id et le montant de la commande depuis le localStorage et les intégrant
+//Fonction récupérant l'orderId et le montant de la commande depuis le localStorage et les intégrant
 function displayOrderConfirmation() {
     const orderPrice = document.getElementById('orderPrice'); //Ciblage de l'élement de destination du montant
     orderPrice.textContent = JSON.parse(localStorage.getItem('orderPrice')); //Récupération depuis le localStorage
