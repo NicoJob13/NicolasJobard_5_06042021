@@ -23,20 +23,20 @@
             </div>
         </header>
         
-        <main class="container main"><!--Corps de la page accueillant le tableau récapitulatif du panier ou un message si le panier est vide, généré via cart.js, le formulaire d'informations
-            client et la bouton de validation de la commande-->
+        <main class="container main"><!--Corps de la page accueillant le tableau récapitulatif du panier ou un message si le panier est vide (généré via cart.js), le formulaire d'informations
+            client et le bouton de validation de la commande-->
             <div id="order">
                 <h2 class="sectionTitle">Je commande !</h2>
                 <div>
                     <h3 class="sectionSubTitle">1 - Mon panier</h3>
                     <div id="tableContainer" class="cartBlockContainer"></div><!--Emplacement destiné au tableau du panier (ou au message de panier vide), suivi d'un montant total et
-                    d'un bouton permettant de vider le panier, le tout généré via cart.js-->
+                    d'un bouton permettant de vider le panier (le tout généré via cart.js)-->
                 </div>
                 <div><!--div englobant le formulaire et le bouton de validation-->
                     <h3 class="sectionSubTitle">2 - Mes informations</h3>
                     <form method="POST" action="./orderconfirmation.html" id="orderForm" class="cartBlockContainer"><!--Formulaire de commande comportant des champs à remplir par le visiteur afin
                     de pouvoir valider sa commande, chaque champs devant être complété ('required') et respecter une expression régulière ('pattern') pour être valide, et contenant des informations
-                sur la saisie attendue ('title' et 'placeholder')-->
+                    sur la saisie attendue ('title' et 'placeholder')-->
                         <div class="formContainer"><!--div destinée à faciliter la mise en forme-->
                             <div class="formInput">
                                 <label for="firstName">Votre prénom</label>
